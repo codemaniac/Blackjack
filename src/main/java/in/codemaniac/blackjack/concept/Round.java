@@ -35,7 +35,18 @@ public final class Round {
     }
 
     public void play() {
-        // place initial bet
+        // collect initial bets
+        collectInitialBets();
+        // hand once
+        dealHand();
+        // hand twice
+        dealHand();
+        // TODO: game play
+        // collect all delt cards and place them at the end of the shoe
+        reclaimCards();
+    }
+
+    private void collectInitialBets() {
         for (final TablePlayer p : activePlayers) {
             final float initialBet = p.placeInitialBet(initialBetAmount);
             if (initialBet > 0) {
@@ -46,24 +57,19 @@ public final class Round {
                 activePlayers.remove(p);
             }
         }
-        // hand once
-        for (final TablePlayer p : activePlayers) {
-            p.addHandCard(shoe.remove());
-        }
-        dealer.addHandCard(shoe.remove());
-        // hand twice
-        for (final TablePlayer p : activePlayers) {
-            p.addHandCard(shoe.remove());
-        }
-        dealer.addHandCard(shoe.remove());
-
-        // TODO: game play
-        
-        // collect back cards
-        for (final TablePlayer p : players) {
-            shoe.addAll(p.returnHandCards());
-        }
-        shoe.addAll(dealer.returnHandCards());
     }
 
+    private void dealHand() {
+        for (final TablePlayer p : activePlayers) {
+            p.addHandCard(shoe.remove());
+        }
+        dealer.addHandCard(shoe.remove());
+    }
+
+    private void reclaimCards() {
+        for (final TablePlayer p : players) {
+            shoe.addAll(p.returnCards());
+        }
+        shoe.addAll(dealer.returnCards());
+    }
 }
