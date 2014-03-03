@@ -1,5 +1,7 @@
 package in.codemaniac.blackjack;
 
+import in.codemaniac.blackjack.actor.TablePlayer;
+import in.codemaniac.blackjack.asset.Table;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

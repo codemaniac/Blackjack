@@ -1,5 +1,8 @@
-package in.codemaniac.blackjack;
+package in.codemaniac.blackjack.concept;
 
+import in.codemaniac.blackjack.actor.Dealer;
+import in.codemaniac.blackjack.actor.TablePlayer;
+import in.codemaniac.blackjack.asset.Card;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;

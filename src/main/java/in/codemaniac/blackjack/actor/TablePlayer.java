@@ -1,4 +1,6 @@
-package in.codemaniac.blackjack;
+package in.codemaniac.blackjack.actor;
+
+import in.codemaniac.blackjack.concept.PlayerMove;
 
 public final class TablePlayer extends Player {
 

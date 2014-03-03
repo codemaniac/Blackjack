@@ -1,4 +1,4 @@
-package in.codemaniac.blackjack;
+package in.codemaniac.blackjack.concept;
 
 public enum Move {
 

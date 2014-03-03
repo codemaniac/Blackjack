@@ -1,4 +1,7 @@
-package in.codemaniac.blackjack;
+package in.codemaniac.blackjack.asset;
+
+import in.codemaniac.blackjack.concept.Suit;
+import in.codemaniac.blackjack.concept.Rank;
 
 public final class Card {
 
