@@ -7,20 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public final class Dealer extends Player {
+public final class Dealer extends AbstractPlayer {
 
-    private final Map<TablePlayer, Integer> tablePlayerHandCounts;
+    private final Map<Player, Integer> tablePlayerHandCounts;
 
     public Dealer(final String name) {
         super(name);
         this.tablePlayerHandCounts = new HashMap<>();
-    }
-
-    public Result inspectPlayerHand(final TablePlayer tablePlayer) {
-        final int playerHandCount = tablePlayer.getHandCount();
-        tablePlayerHandCounts.put(tablePlayer, playerHandCount);
-        // TODO
-        return Result.NONE;
     }
 
     @Override
@@ -34,4 +27,10 @@ public final class Dealer extends Player {
         return super.returnCards();
     }
 
+    public Result inspectPlayerHand(final Player tablePlayer) {
+        final int playerHandCount = tablePlayer.getHandCount();
+        tablePlayerHandCounts.put(tablePlayer, playerHandCount);
+        // TODO
+        return Result.NONE;
+    }
 }

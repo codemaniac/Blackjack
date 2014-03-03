@@ -1,7 +1,7 @@
 package in.codemaniac.blackjack.concept;
 
 import in.codemaniac.blackjack.actor.Dealer;
-import in.codemaniac.blackjack.actor.TablePlayer;
+import in.codemaniac.blackjack.actor.Player;
 import in.codemaniac.blackjack.asset.Card;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,14 +16,14 @@ public final class Round {
 
     private static final Logger LOG = LoggerFactory.getLogger(Round.class);
     private final Dealer dealer;
-    private final Map<TablePlayer, Float> bets;
-    private final TablePlayer[] players;
-    private final List<TablePlayer> activePlayers;
+    private final Map<Player, Float> bets;
+    private final Player[] players;
+    private final List<Player> activePlayers;
     private final Queue<Card> shoe;
     private final float initialBetAmount;
 
     public Round(final Dealer dealer,
-            final TablePlayer[] players,
+            final Player[] players,
             final Queue<Card> shoe,
             final float initialBetAmount) {
         this.bets = new HashMap<>();
@@ -47,7 +47,7 @@ public final class Round {
     }
 
     private void collectInitialBets() {
-        for (final TablePlayer p : activePlayers) {
+        for (final Player p : activePlayers) {
             final float initialBet = p.placeInitialBet(initialBetAmount);
             if (initialBet > 0) {
                 bets.put(p, initialBet);
@@ -60,14 +60,14 @@ public final class Round {
     }
 
     private void dealHand() {
-        for (final TablePlayer p : activePlayers) {
+        for (final Player p : activePlayers) {
             p.addHandCard(shoe.remove());
         }
         dealer.addHandCard(shoe.remove());
     }
 
     private void reclaimCards() {
-        for (final TablePlayer p : players) {
+        for (final Player p : players) {
             shoe.addAll(p.returnCards());
         }
         shoe.addAll(dealer.returnCards());

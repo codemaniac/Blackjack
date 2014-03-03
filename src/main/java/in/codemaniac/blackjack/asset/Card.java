@@ -25,5 +25,4 @@ public final class Card {
     public String toString() {
         return String.format("[%s OF %s]", rank, suit);
     }
-
 }

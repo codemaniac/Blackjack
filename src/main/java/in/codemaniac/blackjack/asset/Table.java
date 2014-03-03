@@ -2,7 +2,7 @@ package in.codemaniac.blackjack.asset;
 
 import in.codemaniac.blackjack.actor.Dealer;
 import in.codemaniac.blackjack.concept.Round;
-import in.codemaniac.blackjack.actor.TablePlayer;
+import in.codemaniac.blackjack.actor.Player;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -15,7 +15,7 @@ public final class Table {
 
     private static final Logger LOG = LoggerFactory.getLogger(Table.class);
     private final Dealer dealer;
-    private final TablePlayer[] players;
+    private final Player[] players;
     private final Queue<Card> shoe;
     private final float initialBetAmount;
     private int currentRoundNumber;
@@ -25,7 +25,7 @@ public final class Table {
             final int shoeSize,
             final float initialBetAmount) {
         dealer = new Dealer(dealerName);
-        players = new TablePlayer[tableSize];
+        players = new Player[tableSize];
         this.shoe = new LinkedList<>();
         for (int i = 0; i < shoeSize; i++) {
             final Deck deck = new Deck();
@@ -35,7 +35,7 @@ public final class Table {
         this.initialBetAmount = initialBetAmount;
     }
 
-    public void addTablePlayer(final TablePlayer tablePlayer) {
+    public void addTablePlayer(final Player tablePlayer) {
         for (int i = 0; i < players.length; i++) {
             if (players[i] == null) {
                 players[i] = tablePlayer;

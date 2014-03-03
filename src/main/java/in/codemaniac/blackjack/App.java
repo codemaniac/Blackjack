@@ -1,6 +1,6 @@
 package in.codemaniac.blackjack;
 
-import in.codemaniac.blackjack.actor.TablePlayer;
+import in.codemaniac.blackjack.actor.Player;
 import in.codemaniac.blackjack.asset.Table;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,8 +15,8 @@ public class App {
 
         final Table table = new Table("!Xobile", 2, 1, 25);
 
-        table.addTablePlayer(new TablePlayer("Russell", 1000));
-        table.addTablePlayer(new TablePlayer("Ashish", 1000));
+        table.addTablePlayer(new Player("Russell", 1000));
+        table.addTablePlayer(new Player("Ashish", 1000));
 
         table.start();        
     }
