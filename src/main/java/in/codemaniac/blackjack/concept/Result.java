@@ -1,6 +1,6 @@
 package in.codemaniac.blackjack.concept;
 
-public enum PlayerRoundResult {
+public enum Result {
 
     BLACKJACK,
     BUST,
