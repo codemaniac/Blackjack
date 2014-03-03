@@ -5,5 +5,6 @@ public enum Result {
     BLACKJACK,
     BUST,
     WIN,
-    PUSH
+    PUSH,
+    NONE
 }

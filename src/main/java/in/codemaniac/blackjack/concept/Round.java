@@ -41,7 +41,7 @@ public final class Round {
         dealHand();
         // hand twice
         dealHand();
-        // TODO: game play
+        // TODO: game play        
         // collect all delt cards and place them at the end of the shoe
         reclaimCards();
     }

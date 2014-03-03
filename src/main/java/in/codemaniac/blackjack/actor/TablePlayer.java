@@ -1,5 +1,6 @@
 package in.codemaniac.blackjack.actor;
 
+import in.codemaniac.blackjack.asset.Card;
 import in.codemaniac.blackjack.concept.PlayerMove;
 
 public final class TablePlayer extends Player {
@@ -17,9 +18,17 @@ public final class TablePlayer extends Player {
         return hasSufficientBalance ? initialBetAmount : 0;
     }
 
+    protected Card[] getHandCards() {
+        return handCards;
+    }
+
+    protected int getHandCount() {
+        return handCount;
+    }
+
     @Override
     public PlayerMove playHand() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }
